@@ -1,10 +1,10 @@
-import CreateHeader from "../modules/create/CreateHeader";
-import CreateHero from "../modules/create/CreateHero";
+import Header from "../modules/Header.js";
+import CreateHero from "../modules/create/CreateHero.js";
 
 export default function CreateLayout() {
   return (
     <>
-      <CreateHeader />
+      <Header />
       <CreateHero />
     </>
   );

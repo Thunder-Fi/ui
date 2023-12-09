@@ -5,12 +5,12 @@ import { Flex, Spacer, Box } from "@chakra-ui/react";
 
 import Link from "next/link";
 
-export default function HomeHeader() {
+export default function Header() {
   const { isConnected } = useAccount();
 
   return (
     <>
-      <Flex direction="row" margin={10} align="center" justify="center">
+      <Flex direction="row" margin={5} align="center" justify="center">
         <Box fontFamily="Barlow" fontSize={50}>
           ThunderFi
         </Box>
