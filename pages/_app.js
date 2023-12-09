@@ -10,18 +10,18 @@ import "react-toastify/dist/ReactToastify.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { goerli } from "wagmi/chains";
+import { arbitrum } from "wagmi/chains";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { publicProvider } from "wagmi/providers/public";
 
 const PROJECT_ID = "6e7a3e8457a2ec975cb7e44a0a791443";
 
 const { chains, publicClient } = configureChains(
-  [goerli],
+  [arbitrum],
   [
     jsonRpcProvider({
       rpc: () => ({
-        http: "https://ethereum-goerli.publicnode.com",
+        http: "https://arb1.arbitrum.io/rpc",
       }),
     }),
     publicProvider(),
