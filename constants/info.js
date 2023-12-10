@@ -1,10 +1,10 @@
 export const tokenToAddress = {
-  USDT: "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-  USDC: "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
-  DAI: "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+  USDT: "0x2c393870Ed13b8DF0ed2861fBdC109cc2B9bd35F",
+  USDC: "0x1d646A3476428eba8943013270830b668c8D3D60",
+  //   DAI: "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
 };
 
-export const ThunderFiAddress = "0x5d7A7c08Fa8f2eD91A440dB4989327b79CB12B28";
+export const ThunderFiAddress = "0x63112998a5E8bBd85C9c0506C1060927668437Bc";
 export const ThunderFIABI = [
   {
     inputs: [

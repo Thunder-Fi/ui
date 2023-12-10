@@ -18,8 +18,6 @@ import {
 } from "@chakra-ui/react";
 
 export default function CreateHero() {
-  const apiKey = process.env.LIGHTHOUSE_API;
-
   const [purchaserAddress, setPurchaserAddress] = useState("");
   const [paymentToken, setPaymentToken] = useState("");
   const [amount, setAmount] = useState(0);
@@ -28,26 +26,6 @@ export default function CreateHero() {
   const [formError, setFormError] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const progressCallback = (progressData) => {
-    let percentageDone =
-      100 - (progressData?.total / progressData?.uploaded)?.toFixed(2);
-    console.log(percentageDone);
-  };
-
-  const uploadFile = async (file) => {
-    // const output = await lighthouse.upload(
-    //   file,
-    //   "48mjrnmETwYQjpTlWa4hbPn40c65sbeA",
-    //   false,
-    //   null,
-    //   progressCallback
-    // );
-    // console.log("File Status:", output);
-    // console.log(
-    //   "Visit at https://gateway.lighthouse.storage/ipfs/" + output.data.Hash
-    // );
-  };
 
   const handleFormSubmit = () => {
     setIsSubmitting(true);
@@ -133,6 +111,6 @@ export default function CreateHero() {
         <Spacer />
       </Flex>
     </Box>
-    {isSubmitting ? <}
+    // {isSubmitting ? <}
   );
 }
