@@ -15,6 +15,7 @@ import {
 import { toast } from "react-toastify";
 
 export default function Create({
+  cid,
   purchaser,
   expiryDate,
   paymentToken,
@@ -26,7 +27,7 @@ export default function Create({
   // uint _amount,
   // uint _expiry
 
-  const [success, setSuccess] = useState(false);
+  const [firstCall, setFirstCall] = useState(true);
   const [createFunctionPrepared, setCreateFunctionPrepared] = useState(false);
 
   /// APPROVAL CONFIG ===============
@@ -36,7 +37,7 @@ export default function Create({
     abi: ThunderFIABI,
     functionName: "createAgreement",
     args: [
-      "",
+      cid,
       purchaser,
       tokenToAddress[paymentToken],
       amount * 1000000,
@@ -52,9 +53,12 @@ export default function Create({
   const createWaitObj = useWaitForTransaction({
     hash: createData?.hash,
     onSuccess() {
-      toast.success("Successfully created an invoice!s");
+      toast.success("Successfully created an invoice!");
     },
   });
 
-  if (createFunctionPrepared) createWrite();
+  if (createFunctionPrepared && firstCall) {
+    setFirstCall(false);
+    createWrite();
+  }
 }

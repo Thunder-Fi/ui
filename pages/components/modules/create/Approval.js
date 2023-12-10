@@ -10,6 +10,7 @@ import {
 } from "wagmi";
 
 export default function Approval({
+  cid,
   purchaser,
   expiryDate,
   paymentToken,
@@ -49,6 +50,7 @@ export default function Approval({
     <>
       {approved ? (
         <Create
+          cid={cid}
           purchaser={purchaser}
           expiryDate={expiryDate}
           paymentToken={paymentToken}
