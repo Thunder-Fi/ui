@@ -1,4 +1,3 @@
-import lighthouse from "@lighthouse-web3/sdk";
 import { useState } from "react";
 import {
   Box,
@@ -17,6 +16,8 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 
+import Approval from "./Approval";
+
 export default function CreateHero() {
   const [purchaserAddress, setPurchaserAddress] = useState("");
   const [paymentToken, setPaymentToken] = useState("");
@@ -29,6 +30,8 @@ export default function CreateHero() {
 
   const handleFormSubmit = () => {
     setIsSubmitting(true);
+
+    console.log(purchaserAddress, paymentToken, amount, expiryDate);
   };
 
   const validatePurchaserAddress = () => {
@@ -70,7 +73,6 @@ export default function CreateHero() {
         >
           <option value="USDC">USDC</option>
           <option value="USDT">USDT</option>
-          <option value="DAI">DAI</option>
         </Select>
 
         <FormLabel mt={5}>Amount</FormLabel>
@@ -93,14 +95,21 @@ export default function CreateHero() {
           min={new Date()}
           disabled={isSubmitting}
           type="date"
-          onChange={(e) => setExpiryDate(e.target.value)}
+          onChange={(e) => {
+            const value = e.target.value;
+            const expiry = new Date(value);
+            const unixEpochTimeInSeconds = Math.floor(expiry.getTime() / 1000);
+
+            setExpiryDate(unixEpochTimeInSeconds);
+            // Get Unix epoch time in seconds            setExpiryDate(e.target.value)
+          }}
         />
 
         <FormLabel mt={5}>Agreement (PDF)</FormLabel>
         <Input
           type="file"
           disabled={isSubmitting}
-          onChange={(e) => uploadFile(e.target.files)}
+          onChange={(e) => setAgreementFile(e.target.files)}
         />
       </FormControl>
 
@@ -110,7 +119,14 @@ export default function CreateHero() {
         </Button>
         <Spacer />
       </Flex>
+      {isSubmitting ? (
+        <Approval
+          purchaser={purchaserAddress}
+          expiryDate={expiryDate}
+          paymentToken={paymentToken}
+          amount={amount}
+        />
+      ) : null}
     </Box>
-    // {isSubmitting ? <}
   );
 }
