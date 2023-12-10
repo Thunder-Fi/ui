@@ -1,9 +1,9 @@
 export const tokenToAddress = {
-  USDT: "0xEA443dC503e10d5AaA3F7859559f21ECA13F0844",
-  USDC: "0x0A235E2DE7A6F682DF972C0a0c90F1D8FA753448",
+  USDT: "0xABb81c50a1a4452e052c7515a4141491d235643F",
+  USDC: "0xb087c6656C00d6fe6831AeF5812C2850f1CCd613",
 };
 
-export const ThunderFiAddress = "0xF00800aDcbc91f79C9121Bbf5bdBeFd65c65AF14";
+export const ThunderFiAddress = "0x5E723bac7e84B85f81667E8c032ba6E52C41A0DB";
 export const ThunderFIABI = [
   {
     inputs: [
@@ -405,7 +405,7 @@ export const ThunderFIABI = [
   },
 ];
 
-export const USDCAddress = "0x0A235E2DE7A6F682DF972C0a0c90F1D8FA753448";
+export const USDCAddress = "0xb087c6656C00d6fe6831AeF5812C2850f1CCd613";
 export const USDCABI = [
   {
     inputs: [
@@ -753,3 +753,6 @@ export const USDCABI = [
     type: "receive",
   },
 ];
+
+export const subgraphEndpoint =
+  "https://api.studio.thegraph.com/query/44907/thunderfi/v0.0.4";
