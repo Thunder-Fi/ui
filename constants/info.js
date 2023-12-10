@@ -755,4 +755,4 @@ export const USDCABI = [
 ];
 
 export const subgraphEndpoint =
-  "https://api.studio.thegraph.com/query/44907/thunderfi/v0.0.4";
+  "https://api.studio.thegraph.com/query/44907/thunderfi/v0.0.5";
